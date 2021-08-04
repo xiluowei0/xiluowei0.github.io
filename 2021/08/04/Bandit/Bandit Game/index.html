@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta name="generator" content="Hexo 5.4.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>Bandit Game - WUJI's Blog</title>
+
+  
+    <meta name="description" content="Bandit Gamelevel 0 Level Goal   The goal of this level is for you to log into the game using SSH. The host to which you need to connect is bandit.labs.overthewire.org, on port 2220. The username is ba">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bandit Game">
+<meta property="og:url" content="https://xiluowei0.github.io/2021/08/04/Bandit/Bandit%20Game/index.html">
+<meta property="og:site_name" content="WUJI&#39;s Blog">
+<meta property="og:description" content="Bandit Gamelevel 0 Level Goal   The goal of this level is for you to log into the game using SSH. The host to which you need to connect is bandit.labs.overthewire.org, on port 2220. The username is ba">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-08-04T08:38:16.000Z">
+<meta property="article:modified_time" content="2021-08-04T16:42:52.865Z">
+<meta property="article:author" content="WUJI">
+<meta property="article:tag" content="Game">
+<meta property="article:tag" content="Code">
+<meta property="article:tag" content="ssh">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.2/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://i.postimg.cc/ydZJTKkV/avatar.jpg" onerror="javascript:this.classList.add('error');this.src='https://cdn.jsdelivr.net/gh/cdn-x/placeholder@1.0.1/image/2659360.svg';"></a><a class="title" href="/"><div class="main">WUJI's Blog</div><div class="sub cap">Never Settle</div></a></div>
+<nav class="menu dis-select"><a class="nav-item active" href="/">Blog</a><a class="nav-item" href="/wiki/">Project</a><a class="nav-item" href="/notes/">Essays</a><a class="nav-item" href="/about/">about</a></nav></header>
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">TOC</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#level-0"><span class="toc-text">level 0</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Commands-you-may-need-to-solve-this-level"><span class="toc-text">Commands you may need to solve this level</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Helpful-Reading-Material"><span class="toc-text">Helpful Reading Material</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#level-1"><span class="toc-text">level 1</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Commands-you-may-need-to-solve-this-level-1"><span class="toc-text">Commands you may need to solve this level</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#level-2"><span class="toc-text">level 2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Commands-you-may-need-to-solve-this-level-2"><span class="toc-text">Commands you may need to solve this level</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Helpful-Reading-Material-1"><span class="toc-text">Helpful Reading Material</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#level-3"><span class="toc-text">level 3</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Commands-you-may-need-to-solve-this-level-3"><span class="toc-text">Commands you may need to solve this level</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#level-4"><span class="toc-text">level 4</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Commands-you-may-need-to-solve-this-level-4"><span class="toc-text">Commands you may need to solve this level</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#level-5"><span class="toc-text">level 5</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Commands-you-may-need-to-solve-this-level-5"><span class="toc-text">Commands you may need to solve this level</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#level-6"><span class="toc-text">level 6</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Commands-you-may-need-to-solve-this-level-6"><span class="toc-text">Commands you may need to solve this level</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#level-7"><span class="toc-text">level 7</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Commands-you-may-need-to-solve-this-level-7"><span class="toc-text">Commands you may need to solve this level</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#level-8"><span class="toc-text">level 8</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Commands-you-may-need-to-solve-this-level-8"><span class="toc-text">Commands you may need to solve this level</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Helpful-Reading-Material-2"><span class="toc-text">Helpful Reading Material</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#level-9"><span class="toc-text">level 9</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Commands-you-may-need-to-solve-this-level-9"><span class="toc-text">Commands you may need to solve this level</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#level-10"><span class="toc-text">level 10</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Commands-you-may-need-to-solve-this-level-10"><span class="toc-text">Commands you may need to solve this level</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Helpful-Reading-Material-3"><span class="toc-text">Helpful Reading Material</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#level-11"><span class="toc-text">level 11</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Commands-you-may-need-to-solve-this-level-11"><span class="toc-text">Commands you may need to solve this level</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Helpful-Reading-Material-4"><span class="toc-text">Helpful Reading Material</span></a></div></div></div>
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">Home</a><span class="sep"></span><a class="cap breadcrumb" href="/">Blog</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/Linux/">Linux</a></div><div id="post-meta">Posted on&nbsp;<time datetime="2021-08-04T08:38:16.000Z">2021-08-04</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>Bandit Game</span></h1>
+<h1 id="Bandit-Game"><a href="#Bandit-Game" class="headerlink" title="Bandit Game"></a>Bandit Game</h1><h3 id="level-0"><a href="#level-0" class="headerlink" title="level 0"></a><a target="_blank" rel="noopener" href="https://overthewire.org/wargames/bandit/bandit0.html">level 0</a></h3><ul>
+<li><p>Level Goal</p>
+<p>  The goal of this level is for you to log into the game using SSH. The host to which you need to connect is <strong>bandit.labs.overthewire.org</strong>, on port 2220. The username is <strong>bandit0</strong> and the password is <strong>bandit0</strong>. Once logged in, go to the <a target="_blank" rel="noopener" href="https://overthewire.org/wargames/bandit/bandit1.html">Level 1</a> page to find out how to beat Level 1.</p>
+<h2 id="Commands-you-may-need-to-solve-this-level"><a href="#Commands-you-may-need-to-solve-this-level" class="headerlink" title="Commands you may need to solve this level"></a>Commands you may need to solve this level</h2><p>  ssh</p>
+<h2 id="Helpful-Reading-Material"><a href="#Helpful-Reading-Material" class="headerlink" title="Helpful Reading Material"></a>Helpful Reading Material</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Secure_Shell">Secure Shell (SSH) on Wikipedia</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.wikihow.com/Use-SSH">How to use SSH on wikiHow</a></li>
+</ul>
+</li>
+<li><p>Knowledge Points</p>
+<ul>
+<li>ssh 连接方法</li>
+<li>eg：ssh <a href="mailto:bandit0@bandit.labs.overthewire.org">bandit0@bandit.labs.overthewire.org</a> -p 2220<ul>
+<li>ssh表示使用ssh进行连接，后面空格跟所要登陆的用户名+@+登陆的网址 / IP地址，-p跟端口号</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="level-1"><a href="#level-1" class="headerlink" title="level 1"></a>level 1</h3><ul>
+<li><p>Level Goal</p>
+<p>  The password for the next level is stored in a file called <strong>readme</strong> located in the home directory. Use this password to log into bandit1 using SSH. Whenever you find a password for a level, use SSH (on port 2220) to log into that level and continue the game.</p>
+<h2 id="Commands-you-may-need-to-solve-this-level-1"><a href="#Commands-you-may-need-to-solve-this-level-1" class="headerlink" title="Commands you may need to solve this level"></a>Commands you may need to solve this level</h2><p>  ls, cd, cat, file, du, find</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">bandit1@bandit:~$ ls</span><br><span class="line">-</span><br><span class="line">bandit1@bandit:~$ cat ./-</span><br><span class="line">CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9</span><br><span class="line">bandit1@bandit:~$</span><br></pre></td></tr></table></figure></li>
+<li><p>Knowledge Points</p>
+<blockquote>
+<p>du 命令，全称是 disk usage，用来展示磁盘使用量的统计信息。<br>  du 和 df 算是一对同门师兄弟，du 侧重在文件夹和文件的磁盘占用方面，而 df 则侧重在文件系统级别的磁盘占用方面。这两个命令都非常的基础，也是每位 Linux 工程师都应该掌握的命令。</p>
+</blockquote>
+<ul>
+<li><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-du.html">du</a></strong></li>
+</ul>
+<p>  Linux du （英文全拼：disk usage）命令用于显示目录或文件的大小。</p>
+<p>  du 会显示指定的目录或文件所占用的磁盘空间。</p>
+</li>
+</ul>
+<h3 id="level-2"><a href="#level-2" class="headerlink" title="level 2"></a>level 2</h3><ul>
+<li><p>Level Goal</p>
+<p>  The password for the next level is stored in a file called <strong>spaces in this filename</strong> located in the home directory</p>
+<h2 id="Commands-you-may-need-to-solve-this-level-2"><a href="#Commands-you-may-need-to-solve-this-level-2" class="headerlink" title="Commands you may need to solve this level"></a>Commands you may need to solve this level</h2><p>  ls, cd, cat, file, du, find</p>
+<h2 id="Helpful-Reading-Material-1"><a href="#Helpful-Reading-Material-1" class="headerlink" title="Helpful Reading Material"></a>Helpful Reading Material</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.google.com/search?q=spaces+in+filename">Google Search for “spaces in filename”</a></li>
+</ul>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">bandit2@bandit:~$ ls</span><br><span class="line">spaces <span class="keyword">in</span> this filename</span><br><span class="line">bandit2@bandit:~$ <span class="built_in">cd</span> spa</span><br><span class="line">-bash: <span class="built_in">cd</span>: spa: No such file or directory</span><br><span class="line">bandit2@bandit:~$ cat spaces\ <span class="keyword">in</span>\ this\ filename</span><br><span class="line">UmHadQclWmgdLOKQ3YNgjWxGoRMb5luK</span><br><span class="line">bandit2@bandit:~$</span><br></pre></td></tr></table></figure></li>
+<li><p>Knowledge</p>
+<p>  在 Linux 中，处理带空格的文件名：</p>
+<p>  要创建文件名称中具有空格的文件，请按照所示运行命令</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ touch<span class="string">&#x27;firstname secondname&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>  您可以使用”猫”命令或使用您喜欢的文本编辑器（如 vim、nano 或 gedit）打开文档。</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  cat <span class="string">&#x27;linoxide docs&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>  或者，您可以使用下面的语法</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat file\ name\ with\ spaces</span><br></pre></td></tr></table></figure>
+
+<p>  让我们在文件中添加一些文本<code>&#39;linoxide docs&#39;</code></p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">&quot;Hello guys! Welcome to Linoxide&quot;</span> &gt;&gt; <span class="string">&#x27;linoxide docs&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>  查看文件执行下面的命令</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat linoxide\ docs</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="level-3"><a href="#level-3" class="headerlink" title="level 3"></a>level 3</h3><ul>
+<li><p>Level Goal</p>
+<p>  The password for the next level is stored in a hidden file in the <strong>inhere</strong> directory.</p>
+<h2 id="Commands-you-may-need-to-solve-this-level-3"><a href="#Commands-you-may-need-to-solve-this-level-3" class="headerlink" title="Commands you may need to solve this level"></a>Commands you may need to solve this level</h2><p>  ls, cd, cat, file, du, find</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">bandit3@bandit:~$ ls</span><br><span class="line">inhere</span><br><span class="line">bandit3@bandit:~$ <span class="built_in">cd</span> inhere/</span><br><span class="line">bandit3@bandit:~/inhere$ ls</span><br><span class="line">bandit3@bandit:~/inhere$ ls -a</span><br><span class="line">.  ..  .hidden</span><br><span class="line">bandit3@bandit:~/inhere$ cat .hidden</span><br><span class="line">pIwrPrtPN36QITSp3EQaw936yaFoFgAB</span><br><span class="line">bandit3@bandit:~/inhere$</span><br></pre></td></tr></table></figure></li>
+<li><p>Knowledge</p>
+<p>  ls -a 查看目录下所有文件等（包括隐藏的文件）</p>
+</li>
+</ul>
+<h3 id="level-4"><a href="#level-4" class="headerlink" title="level 4"></a>level 4</h3><ul>
+<li><p>Level Goal</p>
+<p>  The password for the next level is stored in the only human-readable file in the <strong>inhere</strong> directory. Tip: if your terminal is messed up, try the “reset” command.</p>
+<h2 id="Commands-you-may-need-to-solve-this-level-4"><a href="#Commands-you-may-need-to-solve-this-level-4" class="headerlink" title="Commands you may need to solve this level"></a>Commands you may need to solve this level</h2><p>  ls, cd, cat, file, du, find</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">bandit4@bandit:~/inhere$ file ./*</span><br><span class="line">./-file00: data</span><br><span class="line">./-file01: data</span><br><span class="line">./-file02: data</span><br><span class="line">./-file03: data</span><br><span class="line">./-file04: data</span><br><span class="line">./-file05: data</span><br><span class="line">./-file06: data</span><br><span class="line">./-file07: ASCII text</span><br><span class="line">./-file08: data</span><br><span class="line">./-file09: data</span><br><span class="line">bandit4@bandit:~/inhere$ cat /-file07</span><br><span class="line">cat: /-file07: No such file or directory</span><br><span class="line">bandit4@bandit:~/inhere$ cat ./-file07</span><br><span class="line">koReBOKuIDDepwhWk7jZC0RTdopnAYKh</span><br><span class="line">bandit4@bandit:~/inhere$</span><br><span class="line"></span><br><span class="line">也可以：</span><br><span class="line">bandit4@bandit:~/inhere$ strings ./*</span><br><span class="line">!TQO</span><br><span class="line">koReBOKuIDDepwhWk7jZC0RTdopnAYKh</span><br><span class="line">bandit4@bandit:~/inhere$</span><br></pre></td></tr></table></figure></li>
+<li><p>Knowledge</p>
+<p>  file查看类型，然后查看那个ascii text的文本</p>
+<p>  file ./*</p>
+<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a><strong>语法</strong></h1>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">strings [ -a ] [ - ] [ -o ] [ -t Format ] [ -n Number ] [ -Number ]  [file ... ]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="选项"><a href="#选项" class="headerlink" title="选项"></a><strong>选项</strong></h1>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-a --all：扫描整个文件而不是只扫描目标文件初始化和装载段</span><br><span class="line">-f –print-file-name：在显示字符串前先显示文件名</span><br><span class="line">-n –bytes=[number]：找到并且输出所有NUL终止符序列</span><br><span class="line">- ：设置显示的最少的字符数，默认是4个字符</span><br><span class="line">-t --radix=&#123;o,d,x&#125; ：输出字符的位置，基于八进制，十进制或者十六进制</span><br><span class="line">-o ：类似--radix=o</span><br><span class="line">-T --target= ：指定二进制文件格式</span><br><span class="line">-e --encoding=&#123;s,S,b,l,B,L&#125; ：选择字符大小和排列顺序:s = 7-bit, S = 8-bit, &#123;b,l&#125; = 16-bit, &#123;B,L&#125; = 32-bit</span><br><span class="line">@ ：读取中选项</span><br></pre></td></tr></table></figure>
+
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a><strong>实例</strong></h1><p>  列出ls中所有的ASCII文本：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">strings /bin/ls</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>  列出ls中所有的ASCII文本：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat /bin/ls strings</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>  查找ls中包含libc的字符串，不区分大小写：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings /bin/ls | grep -i libc</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="level-5"><a href="#level-5" class="headerlink" title="level 5"></a>level 5</h3><ul>
+<li><p>Level Goal</p>
+<p>  The password for the next level is stored in a file somewhere under the <strong>inhere</strong> directory and has all of the following properties:</p>
+<ul>
+<li>human-readable</li>
+<li>1033 bytes in size</li>
+<li>not executable</li>
+</ul>
+<h2 id="Commands-you-may-need-to-solve-this-level-5"><a href="#Commands-you-may-need-to-solve-this-level-5" class="headerlink" title="Commands you may need to solve this level"></a>Commands you may need to solve this level</h2><p>  ls, cd, cat, file, du, find</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">bandit5@bandit:~/inhere$ find \! executable -size 1033</span><br><span class="line">find: paths must precede expression: executable</span><br><span class="line">Try <span class="string">&#x27;find --help&#x27;</span> <span class="keyword">for</span> more information.</span><br><span class="line">bandit5@bandit:~/inhere$ find \! executable -size 1033c</span><br><span class="line">find: paths must precede expression: executable</span><br><span class="line">Try <span class="string">&#x27;find --help&#x27;</span> <span class="keyword">for</span> more information.</span><br><span class="line">bandit5@bandit:~/inhere$ find \! -executable -size 1033c</span><br><span class="line">./maybehere07/.file2</span><br><span class="line">bandit5@bandit:~/inhere$</span><br><span class="line">bandit5@bandit:~/inhere$ cat ./maybehere07/.file2</span><br><span class="line">DXjZPULLxYr17uwoI01bNLQbtFemEgo7</span><br></pre></td></tr></table></figure></li>
+<li><p>Knowledge</p>
+<p>  <a target="_blank" rel="noopener" href="http://c.biancheng.net/view/779.html">find ! executable -size 1033c</a></p>
+</li>
+</ul>
+<h3 id="level-6"><a href="#level-6" class="headerlink" title="level 6"></a>level 6</h3><ul>
+<li><p>Level Goal</p>
+<p>  The password for the next level is stored <strong>somewhere on the server</strong> and has all of the following properties:</p>
+<ul>
+<li>owned by user bandit7</li>
+<li>owned by group bandit6</li>
+<li>33 bytes in size</li>
+</ul>
+<h2 id="Commands-you-may-need-to-solve-this-level-6"><a href="#Commands-you-may-need-to-solve-this-level-6" class="headerlink" title="Commands you may need to solve this level"></a>Commands you may need to solve this level</h2><p>  ls, cd, cat, file, du, find, grep</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">bandit6@bandit:/var/lib$ man find</span><br><span class="line">bandit6@bandit:/var/lib$ find / -size 33c -user bandit7 -group bandit6</span><br><span class="line">find: ‘/root’: Permission denied</span><br><span class="line">find: ‘/home/bandit28-git’: Permission denied</span><br><span class="line">find: ‘/home/bandit30-git’: Permission denied</span><br><span class="line">find: ‘/home/bandit5/inhere’: Permission denied</span><br><span class="line">find: ‘/home/bandit27-git’: Permission denied</span><br><span class="line">find: ‘/home/bandit29-git’: Permission denied</span><br><span class="line">find: ‘/home/bandit31-git’: Permission denied</span><br><span class="line">find: ‘/lost+found’: Permission denied</span><br><span class="line">find: ‘/etc/ssl/private’: Permission denied</span><br><span class="line">find: ‘/etc/polkit-1/localauthority’: Permission denied</span><br><span class="line">find: ‘/etc/lvm/archive’: Permission denied</span><br><span class="line">find: ‘/etc/lvm/backup’: Permission denied</span><br><span class="line">find: ‘/sys/fs/pstore’: Permission denied</span><br><span class="line">find: ‘/proc/tty/driver’: Permission denied</span><br><span class="line">find: ‘/proc/835/task/835/fd/6’: No such file or directory</span><br><span class="line">find: ‘/proc/835/task/835/fdinfo/6’: No such file or directory</span><br><span class="line">find: ‘/proc/835/fd/5’: No such file or directory</span><br><span class="line">find: ‘/proc/835/fdinfo/5’: No such file or directory</span><br><span class="line">find: ‘/cgroup2/csessions’: Permission denied</span><br><span class="line">find: ‘/boot/lost+found’: Permission denied</span><br><span class="line">find: ‘/tmp’: Permission denied</span><br><span class="line">find: ‘/run/lvm’: Permission denied</span><br><span class="line">find: ‘/run/screen/S-bandit28’: Permission denied</span><br><span class="line">find: ‘/run/screen/S-bandit0’: Permission denied</span><br><span class="line">find: ‘/run/screen/S-bandit30’: Permission denied</span><br><span class="line">find: ‘/run/screen/S-bandit5’: Permission denied</span><br><span class="line">find: ‘/run/screen/S-bandit7’: Permission denied</span><br><span class="line">find: ‘/run/screen/S-bandit1’: Permission denied</span><br><span class="line">find: ‘/run/screen/S-bandit12’: Permission denied</span><br><span class="line">find: ‘/run/screen/S-bandit11’: Permission denied</span><br><span class="line">find: ‘/run/screen/S-bandit10’: Permission denied</span><br><span class="line">find: ‘/run/screen/S-bandit3’: Permission denied</span><br><span class="line">find: ‘/run/screen/S-bandit29’: Permission denied</span><br><span class="line">find: ‘/run/screen/S-bandit15’: Permission denied</span><br><span class="line">find: ‘/run/screen/S-bandit8’: Permission denied</span><br><span class="line">find: ‘/run/screen/S-bandit13’: Permission denied</span><br><span class="line">find: ‘/run/screen/S-bandit19’: Permission denied</span><br><span class="line">find: ‘/run/screen/S-bandit9’: Permission denied</span><br><span class="line">find: ‘/run/screen/S-bandit27’: Permission denied</span><br><span class="line">find: ‘/run/screen/S-bandit2’: Permission denied</span><br><span class="line">find: ‘/run/screen/S-bandit14’: Permission denied</span><br><span class="line">find: ‘/run/screen/S-bandit16’: Permission denied</span><br><span class="line">find: ‘/run/screen/S-bandit22’: Permission denied</span><br><span class="line">find: ‘/run/screen/S-bandit4’: Permission denied</span><br><span class="line">find: ‘/run/screen/S-bandit31’: Permission denied</span><br><span class="line">find: ‘/run/screen/S-bandit24’: Permission denied</span><br><span class="line">find: ‘/run/screen/S-bandit21’: Permission denied</span><br><span class="line">find: ‘/run/screen/S-bandit25’: Permission denied</span><br><span class="line">find: ‘/run/screen/S-bandit23’: Permission denied</span><br><span class="line">find: ‘/run/screen/S-bandit20’: Permission denied</span><br><span class="line">find: ‘/run/shm’: Permission denied</span><br><span class="line">find: ‘/run/lock/lvm’: Permission denied</span><br><span class="line">find: ‘/var/spool/bandit24’: Permission denied</span><br><span class="line">find: ‘/var/spool/cron/crontabs’: Permission denied</span><br><span class="line">find: ‘/var/spool/rsyslog’: Permission denied</span><br><span class="line">find: ‘/var/tmp’: Permission denied</span><br><span class="line">find: ‘/var/lib/apt/lists/partial’: Permission denied</span><br><span class="line">find: ‘/var/lib/polkit-1’: Permission denied</span><br><span class="line">/var/lib/dpkg/info/bandit7.password</span><br><span class="line">find: ‘/var/<span class="built_in">log</span>’: Permission denied</span><br><span class="line">find: ‘/var/cache/apt/archives/partial’: Permission denied</span><br><span class="line">find: ‘/var/cache/ldconfig’: Permission denied</span><br><span class="line">bandit6@bandit:/var/lib$ find / -size 33c -user bandit7 -group bandit6 2&gt;/dev/null</span><br><span class="line">/var/lib/dpkg/info/bandit7.password</span><br><span class="line">bandit6@bandit:/var/lib$ cat /var/lib/dpkg/info/bandit7.password</span><br><span class="line">HKBPTKQnIay4Fw76bEy8PVxKEDQRKTzs</span><br><span class="line">bandit6@bandit:/var/lib$</span><br></pre></td></tr></table></figure></li>
+<li><p>Knowledge</p>
+<p>  如果想知道一个命令的详细信息可以输入：‘man find’ 用以查看<em>find</em>的相关信息，属于斜杠  / 用以查找你想要的相关参数</p>
+<p>  当我们find遇到上面的关于权限等错误时可以在命令行后+ 2&gt;/dev/null , 以过滤不必要的错误显示</p>
+</li>
+</ul>
+<h3 id="level-7"><a href="#level-7" class="headerlink" title="level 7"></a>level 7</h3><ul>
+<li><p>Level Goal</p>
+<p>  The password for the next level is stored in the file <strong>data.txt</strong> next to the word <strong>millionth</strong></p>
+<h2 id="Commands-you-may-need-to-solve-this-level-7"><a href="#Commands-you-may-need-to-solve-this-level-7" class="headerlink" title="Commands you may need to solve this level"></a>Commands you may need to solve this level</h2><p>  grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bandit7@bandit:~$ cat data.txt | grep <span class="string">&quot;millionth&quot;</span></span><br><span class="line">millionth       cvX2JJa4CFALtqS87jk27qwqGhBM9plV</span><br></pre></td></tr></table></figure></li>
+<li><p>Knowledge</p>
+<p>  grep 抓取自己想到的字符串“”</p>
+</li>
+</ul>
+<h3 id="level-8"><a href="#level-8" class="headerlink" title="level 8"></a>level 8</h3><ul>
+<li><p>Level Goal</p>
+<p>  The password for the next level is stored in the file <strong>data.txt</strong> and is the only line of text that occurs only once</p>
+<h2 id="Commands-you-may-need-to-solve-this-level-8"><a href="#Commands-you-may-need-to-solve-this-level-8" class="headerlink" title="Commands you may need to solve this level"></a>Commands you may need to solve this level</h2><p>  grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd</p>
+<h2 id="Helpful-Reading-Material-2"><a href="#Helpful-Reading-Material-2" class="headerlink" title="Helpful Reading Material"></a>Helpful Reading Material</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://ryanstutorials.net/linuxtutorial/piping.php">Piping and Redirection</a></li>
+</ul>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line">bandit8@bandit:~$ cat data.txt | sort | uniq -c</span><br><span class="line">     10 07KC3ukwX7kswl8Le9ebb3H3sOoNTsR2</span><br><span class="line">     10 0efnqHY1ZTNRu4LsDX4D73DsxIQq7RuJ</span><br><span class="line">     10 0N65ZPpNGkUJePzFxctCRZRXVrCbUGfm</span><br><span class="line">     10 0Xo6DLyK5izRqEtBA7sW2SRmlAixWYSg</span><br><span class="line">     10 10XitczY5Dz7UMoseKIeFWSzzwQrylfw</span><br><span class="line">     10 1ETSsKgjfQj1cJeFzXLJWzKzza3iWcJa</span><br><span class="line">     10 1T6qw9I32d71cS3TTvwmVp1WsxPFDJ9I</span><br><span class="line">     10 2bFz9F0yRwxGzVCZ4Er04bk00qfUrzWb</span><br><span class="line">     10 2CxmtCkpNL5ZjuoNzAtShkPXf5T43W7s</span><br><span class="line">     10 337o85y4OymIh99WPUtotkb114evfAkC</span><br><span class="line">     10 33xpPQhjt4Q2mqtX4sCVRwH2Zyh82E8R</span><br><span class="line">     10 4SMqyZZztep75cte6xxKpVL49pKUkV8N</span><br><span class="line">     10 5AdqWjoJOEdx5tJmZVBMo0K2e4arD3ZW</span><br><span class="line">     10 5cO8XuoQWrzsyeOWDht8zgUIVWSRDaeC</span><br><span class="line">     10 6PF22p6O8TphCTZot9ApZx8VfGuo8rd5</span><br><span class="line">     10 7KaMzgnYMUeMISP9vuT3Dvsc06qfqa9u</span><br><span class="line">     10 7uhj3nhe4AS0esnnEZHBAZN67fJ8BFjM</span><br><span class="line">     10 8jtZmvqp9PTi8tp1oybBM663NQH3fhII</span><br><span class="line">     10 8NtHZnWzCA8HswoJSCU7Ojg8nP3eKpsA</span><br><span class="line">     10 aR2QhaBoDMncvJqPWkvLXMzEx9meBIbX</span><br><span class="line">     10 BccauS9LeE8NUz4HVLXUwE8M1LWisPlG</span><br><span class="line">     10 bRnktwNdxFy2RPZIshXJikswwEzJGvJ9</span><br><span class="line">     10 cIPbot7oYveUPNxDMhv1hiri50CqpkTG</span><br><span class="line">     10 cR6riSWC0ST7ALZ2i1e47r3gc0QxShGo</span><br><span class="line">     10 CUqLkjIo0Jz9fNgrjPxiPa7PGGC1wpTQ</span><br><span class="line">     10 dGnfD2LoqTiO1MBf2vmqw1KKEWSHfMKJ</span><br><span class="line">     10 dqd5wTVO1cVPJoEY7GGkCdGxG6ZYqW98</span><br><span class="line">     10 dqnvnNxL4QR3ALq95ckhZwEpl77cRgF4</span><br><span class="line">     10 DqPqVp8YCjZ1vFsclwRTg13EuSc2D52X</span><br><span class="line">     10 dV0aGGhk6mB4ZJX1aTTluAUIvLWToTYr</span><br><span class="line">     10 DxxLvJl6cGHXLT7OW4xqS7Qrfny1K01l</span><br><span class="line">     10 e5HFl4ur1rAxPPv2mHzg1uYKMuos4fwp</span><br><span class="line">     10 Ef509iQpb5gQJsjz5dMXLxpeAfkbLOrw</span><br><span class="line">     10 eTHlmI3pFZ4FQASs32Dm0ETVZWHlP0I1</span><br><span class="line">     10 f0tri5KLH5eiTU0zQOqWvXTsrl1ekqnU</span><br><span class="line">     10 f6ZuiZizTliaMOkVYXZMudtaReSYMnkP</span><br><span class="line">     10 flyKxCbHB8uLTaIB5LXqQNuJj3yj00eh</span><br><span class="line">     10 g1VkH2pk3cmr6aY4np1Dcpm0HF7G9IDT</span><br><span class="line">     10 g9xRXSlVNiV4EhUAl1p6uPUWcyEewDK6</span><br><span class="line">     10 gqyF9CW3NNIiGW27AtWVNPqp3i1fxTMY</span><br><span class="line">     10 h2IsJoN6fe0ne0qrTQxeiu0P44hMWWbk</span><br><span class="line">     10 hA6Ofhj75FPgqnCKEJ9g6pLSKapxxmGC</span><br><span class="line">     10 Hq6uxRAkKPNLnH6eRSFDzXtvVt0CSsee</span><br><span class="line">     10 I3fc578VLa7mOQ1t9zArPPOPY7aDVBcJ</span><br><span class="line">     10 iIaOHQG7ZLdimomwMQaGIF7vib1RmXBh</span><br><span class="line">     10 IkAAyqo1rCrxdY8qH0FfxXkRTTO2GNSf</span><br><span class="line">     10 iKiMcQpNMn2ImOASX39XBUR8XfApdmsj</span><br><span class="line">     10 InU7h0xhZh4SMMOMvlnsq03pz0k9J5FX</span><br><span class="line">     10 iwE0KTeKQ8PWihqvjUnpu52YZeIO8Pqb</span><br><span class="line">     10 J6Lzp6ZqTJsOuJRTXcvhwKfM0KK3Xtbl</span><br><span class="line">     10 K9D1CLsVCdkodgvJJIt1oHIaiOY1h8hg</span><br><span class="line">     10 KASHOxc1NxaM8caXUw5MHCkddANXOkCu</span><br><span class="line">     10 khecG2RClunkhrgmq4UNB26N5F1yiUwL</span><br><span class="line">     10 kJTBMD8k9OHyXwZ2aJMQkV23u0gyuoIO</span><br><span class="line">     10 KLu6irnqFwhOKnVoTwuoT9e5t6oxYQwv</span><br><span class="line">     10 KrDVVORXLPfRhfnRmmuP3OnVHWKDMSM8</span><br><span class="line">     10 kUbOkhsIw6GSp0WI2YUo1Q3hDxFU0iQn</span><br><span class="line">     10 l1I3Red7uSH9n30OylHP2hQDbOU0qGaq</span><br><span class="line">     10 l2lECnJkQk8EBl6IO3gHUlnjoCTF1has</span><br><span class="line">     10 LfrBHfAh0pP9bgGAZP4QrVkut3pysAYC</span><br><span class="line">     10 Lg4vWWvEY7s0bG6BRiA35AHzo2gM6lHg</span><br><span class="line">     10 mpgNGRH628hTQxajScbagkxaPKklUhjn</span><br><span class="line">     10 mzOW32HQZi14kwrdeiquO1LCbyaOtbiT</span><br><span class="line">     10 nJRb4MipHMdTmFylFc1NlqmywgxDSdoI</span><br><span class="line">     10 NLWvtQvL7EaqBNx2x4eznRlQONULlCYZ</span><br><span class="line">     10 NOdH1kFWibx4XnNaJoLFmghBn7oIs5hb</span><br><span class="line">     10 ojGabNG5NJ9ppKUBXGr8lwMRRS5GuiA5</span><br><span class="line">     10 OZ1wgx8bDI0vFOFxDQH32eMMcIPiIuPE</span><br><span class="line">     10 PfbMe4Xb3mw5mJmabIbKAXKCU7zynDHl</span><br><span class="line">     10 PQKOeIQwTw490Y8yobuxZAOL4cNmVo1D</span><br><span class="line">     10 PSdVQSeUUBPRZD58WWP0OXLKxSgU3RxX</span><br><span class="line">     10 ptb5ZW8TcgD3U6gOGCcN31xCDGIoQSEa</span><br><span class="line">     10 qaWWAOOquC3yHnfJI4zvPWzCBdfHQ8wa</span><br><span class="line">     10 RMiSPoAvF7WhgIcOdSQR2r6Zx0DNS5UW</span><br><span class="line">     10 s1603Q2r4RPKqyoA8cspIRk0VdgEmFC3</span><br><span class="line">     10 SA05uWMVCao2rzS8YRqUXh19SvnDpuOl</span><br><span class="line">     10 SHMAMUEzQe4mV7SJpETTZFsyNRJsZE2k</span><br><span class="line">     10 si952kS1y6pt4AFenmm0oIp8n7W5d3bd</span><br><span class="line">     10 sYSokIATVvFUKU4sAHTtMarfjlZWWj5i</span><br><span class="line">     10 SzwgS2ADSjP6ypOzp2bIvdqNyusRtrHj</span><br><span class="line">     10 TKUtQbeYnEzzYIne7BinoBx2bHFLBXzG</span><br><span class="line">     10 TThRArdF2ZEXMO47TIYkyPPLtvzzLcDf</span><br><span class="line">     10 tVW9iY1Ml0uHPK4usZnN8oZXbjRt2ATY</span><br><span class="line">     10 U0NYdD3wHZKpfEg9qGQOLJimAJy6qxhS</span><br><span class="line">     10 UASW6CQwD6MRzftu6FAfyXBK0cVvnBLP</span><br><span class="line">     10 UJiCNvDNfgb3fcCj8PjjnAXHqUM63Uyj</span><br><span class="line">     10 UjsVbcqKeJqdCZQCDMkzv6A9X7hLbNE4</span><br><span class="line">      1 UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR</span><br><span class="line">     10 UVnZvhiVQECraz5jl8U14sMVZQhjuXia</span><br><span class="line">     10 V2d9umHiuPLYLIDsuHj0frOEmreCZMaA</span><br><span class="line">     10 v9zaxkVAOdIOlITZY2uoCtB1fX2gmly9</span><br><span class="line">     10 VkBAEWyIibVkeURZV5mowiGg6i3m7Be0</span><br><span class="line">     10 w4zUWFGTUrAAh8lNkS8gH3WK2zowBEkA</span><br><span class="line">     10 WBqr9xvf6mYTT5kLcTGCG6jb3ex94xWr</span><br><span class="line">     10 wjNwumEX58RUQTrufHMciWz5Yx10GtTC</span><br><span class="line">     10 X1JHOUkrb4KgugMXIzMWWIWvRkeZleTI</span><br><span class="line">     10 XyeJdbrUJyGtdGx8cXLQST0pwu5cvpcA</span><br><span class="line">     10 yo0HbSe2GM0jJNhRQLxwoPp7ayYEmRKY</span><br><span class="line">     10 ySvsTwlMgnUF0n86Fgmn2TNjkSOlrV72</span><br><span class="line">     10 Z9OC6DQpppreChPhwRJJV9YYTtrxNVcO</span><br><span class="line">     10 zdd2ctVveROGeiS2WE3TeLZMeL5jL7iM</span><br><span class="line">bandit8@bandit:~$ cat data.txt | sort | uniq -u</span><br><span class="line">UsvVyFSfZZWbi6wgC7dAFyFuR6jQQUhR</span><br></pre></td></tr></table></figure></li>
+<li><p><a target="_blank" rel="noopener" href="https://ryanstutorials.net/linuxtutorial/piping.php">Knowledge</a></p>
+<p>  <a target="_blank" rel="noopener" href="https://ryanstutorials.net/linuxtutorial/piping.php">Learn Piping and Redirection - Linux Tutorial</a></p>
+<p>  sort 进行分组排序，uniq 筛选</p>
+</li>
+</ul>
+<h3 id="level-9"><a href="#level-9" class="headerlink" title="level 9"></a>level 9</h3><ul>
+<li><p>Level Goal</p>
+<p>  The password for the next level is stored in the file <strong>data.txt</strong> in one of the few human-readable strings, preceded by several ‘=’ characters.</p>
+<h2 id="Commands-you-may-need-to-solve-this-level-9"><a href="#Commands-you-may-need-to-solve-this-level-9" class="headerlink" title="Commands you may need to solve this level"></a>Commands you may need to solve this level</h2><p>  grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br></pre></td><td class="code"><pre><span class="line">bandit9@bandit:~$ file ./*</span><br><span class="line">./data.txt: data</span><br><span class="line">bandit9@bandit:~$ strings ./*</span><br><span class="line">Z/,_</span><br><span class="line">WW<span class="string">&quot;&amp;8</span></span><br><span class="line"><span class="string">2Qk)</span></span><br><span class="line"><span class="string">xWa_</span></span><br><span class="line"><span class="string">x?Xn</span></span><br><span class="line"><span class="string">//M$</span></span><br><span class="line"><span class="string">;yzEt!</span></span><br><span class="line"><span class="string">WpU~e</span></span><br><span class="line"><span class="string">`Rn,I</span></span><br><span class="line"><span class="string">VSXdK</span></span><br><span class="line"><span class="string">WB|&#123;</span></span><br><span class="line"><span class="string">GhG$</span></span><br><span class="line"><span class="string">========== the*2i&quot;</span>4</span><br><span class="line">DUJmU</span><br><span class="line">ux.j</span><br><span class="line">=:G e</span><br><span class="line">8.jD</span><br><span class="line">)<span class="string">&#x27;0K</span></span><br><span class="line"><span class="string">9DLW</span></span><br><span class="line"><span class="string">f0&quot;q</span></span><br><span class="line"><span class="string">zf~Z</span></span><br><span class="line"><span class="string"> flf</span></span><br><span class="line"><span class="string">a&#123;KG</span></span><br><span class="line"><span class="string">lj&#125;ZRO</span></span><br><span class="line"><span class="string">662Z</span></span><br><span class="line"><span class="string">.Y `04</span></span><br><span class="line"><span class="string">wUhy</span></span><br><span class="line"><span class="string">X38UL</span></span><br><span class="line"><span class="string">v&quot;*-</span></span><br><span class="line"><span class="string">AxEf</span></span><br><span class="line"><span class="string">aeTh</span></span><br><span class="line"><span class="string">OeOS</span></span><br><span class="line"><span class="string">e&#125;\&quot;</span></span><br><span class="line"><span class="string">[72V]&gt;e</span></span><br><span class="line"><span class="string">N+&#123;G6Q</span></span><br><span class="line"><span class="string">7XK5</span></span><br><span class="line"><span class="string">B&#125;T&lt;d</span></span><br><span class="line"><span class="string">SQr.</span></span><br><span class="line"><span class="string">&#123;8xG\</span></span><br><span class="line"><span class="string">|b;&#123;</span></span><br><span class="line"><span class="string">Y4xsm</span></span><br><span class="line"><span class="string">-xnfv</span></span><br><span class="line"><span class="string">6@Bj</span></span><br><span class="line"><span class="string">-|38</span></span><br><span class="line"><span class="string">,F3&amp;A</span></span><br><span class="line"><span class="string">iQ&gt;Zc</span></span><br><span class="line"><span class="string"> r8C</span></span><br><span class="line"><span class="string">|wJ*&quot;</span></span><br><span class="line"><span class="string">gtg~o6c</span></span><br><span class="line"><span class="string">&amp;&gt;\     7</span></span><br><span class="line"><span class="string">xk9~</span></span><br><span class="line"><span class="string">.,N?</span></span><br><span class="line"><span class="string">n~C!l</span></span><br><span class="line"><span class="string">LCbD</span></span><br><span class="line"><span class="string">wqND</span></span><br><span class="line"><span class="string">tmC&gt;</span></span><br><span class="line"><span class="string">&#x27;</span>&lt;o-</span><br><span class="line">OxYF</span><br><span class="line">68&#125;j</span><br><span class="line">Q~a`%</span><br><span class="line">========== password</span><br><span class="line"><span class="comment">#|-l</span></span><br><span class="line">G&#125;`:</span><br><span class="line">o]zb</span><br><span class="line">JbnhB</span><br><span class="line">:j9)</span><br><span class="line">t7qM</span><br><span class="line">9-q?9z</span><br><span class="line">gh<span class="string">&#x27;Kz</span></span><br><span class="line"><span class="string">uWO)</span></span><br><span class="line"><span class="string">dxG9</span></span><br><span class="line"><span class="string">e&#125;)nQ</span></span><br><span class="line"><span class="string">~&#125;K&#123;</span></span><br><span class="line"><span class="string">acer</span></span><br><span class="line"><span class="string">?.&#125;@</span></span><br><span class="line"><span class="string">&quot;*a%si*</span></span><br><span class="line"><span class="string">&lt;I=zsGi</span></span><br><span class="line"><span class="string">&amp;15h</span></span><br><span class="line"><span class="string">!G[\</span></span><br><span class="line"><span class="string">uOZ\K</span></span><br><span class="line"><span class="string">BYD1</span></span><br><span class="line"><span class="string">D2?</span></span><br><span class="line"><span class="string">Z)========== is</span></span><br><span class="line"><span class="string">x[U*</span></span><br><span class="line"><span class="string">m/;7</span></span><br><span class="line"><span class="string">r%z$c</span></span><br><span class="line"><span class="string">C !n</span></span><br><span class="line"><span class="string">&amp;/Lhh[&#125;~s</span></span><br><span class="line"><span class="string">b$J&#125;)Q</span></span><br><span class="line"><span class="string">z3p)</span></span><br><span class="line"><span class="string">fRk4Ck</span></span><br><span class="line"><span class="string">Jq&#123;`</span></span><br><span class="line"><span class="string">fVHi</span></span><br><span class="line"><span class="string">Y&lt;_M</span></span><br><span class="line"><span class="string">88)%</span></span><br><span class="line"><span class="string">E&gt;aS</span></span><br><span class="line"><span class="string">*S&#123;&quot;</span></span><br><span class="line"><span class="string">k&lt;02</span></span><br><span class="line"><span class="string">i;C\\N</span></span><br><span class="line"><span class="string">t;afX</span></span><br><span class="line"><span class="string">:mJ\</span></span><br><span class="line"><span class="string">)&#123;.h</span></span><br><span class="line"><span class="string">ZcO3</span></span><br><span class="line"><span class="string">&gt;K`t;X</span></span><br><span class="line"><span class="string">&#x27;</span>p6:</span><br><span class="line">/g<span class="string">&#x27;x</span></span><br><span class="line"><span class="string">l6C4</span></span><br><span class="line"><span class="string">@17J</span></span><br><span class="line"><span class="string">V?**</span></span><br><span class="line"><span class="string">141&gt;Y</span></span><br><span class="line"><span class="string">YZ+y</span></span><br><span class="line"><span class="string">K#VV</span></span><br><span class="line"><span class="string">|6Uj</span></span><br><span class="line"><span class="string">ckd^r</span></span><br><span class="line"><span class="string">zDshn:X</span></span><br><span class="line"><span class="string">A=|t&amp;E</span></span><br><span class="line"><span class="string">n8os</span></span><br><span class="line"><span class="string">O\0     f       &gt;</span></span><br><span class="line"><span class="string">]v#8</span></span><br><span class="line"><span class="string">2X[eO&#123;</span></span><br><span class="line"><span class="string">TjIR\+</span></span><br><span class="line"><span class="string">qeY|</span></span><br><span class="line"><span class="string">I[aJtZH:</span></span><br><span class="line"><span class="string">LkfWdO5`</span></span><br><span class="line"><span class="string">pC:*</span></span><br><span class="line"><span class="string">X^+5</span></span><br><span class="line"><span class="string">Aiwj~</span></span><br><span class="line"><span class="string">        0^8]W</span></span><br><span class="line"><span class="string">4k1S</span></span><br><span class="line"><span class="string">BbYR</span></span><br><span class="line"><span class="string">:hk9</span></span><br><span class="line"><span class="string">ZpE5</span></span><br><span class="line"><span class="string">mWW#+\</span></span><br><span class="line"><span class="string">s/#m`</span></span><br><span class="line"><span class="string">*Ybc</span></span><br><span class="line"><span class="string">vNHkt</span></span><br><span class="line"><span class="string">tVQq</span></span><br><span class="line"><span class="string">S_JtG1</span></span><br><span class="line"><span class="string">CQ:[`</span></span><br><span class="line"><span class="string">63KS+</span></span><br><span class="line"><span class="string">Rw_0</span></span><br><span class="line"><span class="string">)&#x27;</span>p5</span><br><span class="line">y.f+3</span><br><span class="line">G?<span class="string">&#x27;P</span></span><br><span class="line"><span class="string">olV_</span></span><br><span class="line"><span class="string">0X Gx</span></span><br><span class="line"><span class="string">6\Ni</span></span><br><span class="line"><span class="string">X$)4!</span></span><br><span class="line"><span class="string">B-&quot;q</span></span><br><span class="line"><span class="string">p1bz</span></span><br><span class="line"><span class="string">P%W&quot;</span></span><br><span class="line"><span class="string">W`yI</span></span><br><span class="line"><span class="string">ve&amp;I</span></span><br><span class="line"><span class="string">Zdb=</span></span><br><span class="line"><span class="string">M]W&gt;g</span></span><br><span class="line"><span class="string">9!ipo</span></span><br><span class="line"><span class="string">x3tl%E</span></span><br><span class="line"><span class="string">&#123;)Xiw-</span></span><br><span class="line"><span class="string">Mef?Mo</span></span><br><span class="line"><span class="string">Tr]Zo</span></span><br><span class="line"><span class="string">;x47</span></span><br><span class="line"><span class="string">/Uil&gt;</span></span><br><span class="line"><span class="string">c^ LAh=3G</span></span><br><span class="line"><span class="string">QR%q</span></span><br><span class="line"><span class="string">C&amp;&amp;b</span></span><br><span class="line"><span class="string">fXzzO(Ub</span></span><br><span class="line"><span class="string">.y#2</span></span><br><span class="line"><span class="string">LsyH</span></span><br><span class="line"><span class="string">R       w&amp;</span></span><br><span class="line"><span class="string">,V*.m</span></span><br><span class="line"><span class="string">g.o]]|W</span></span><br><span class="line"><span class="string">]A2xd&#125;M</span></span><br><span class="line"><span class="string">il,m</span></span><br><span class="line"><span class="string">.;].F</span></span><br><span class="line"><span class="string">&#125;&lt;@M</span></span><br><span class="line"><span class="string">N:)c</span></span><br><span class="line"><span class="string">sssyJ</span></span><br><span class="line"><span class="string">:T      Y</span></span><br><span class="line"><span class="string">_^XF)ZB.g</span></span><br><span class="line"><span class="string">;9&#x27;</span>~</span><br><span class="line">\Jg`</span><br><span class="line">S/gA</span><br><span class="line">g&lt;%x</span><br><span class="line">xzY&lt;</span><br><span class="line">blsN</span><br><span class="line">~U^y</span><br><span class="line">x@nQ</span><br><span class="line">*SF=s</span><br><span class="line">&#125;1:LF</span><br><span class="line">]vur</span><br><span class="line">Emlld</span><br><span class="line">&amp;========== truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk</span><br><span class="line">_Gmz</span><br><span class="line">\Uli,</span><br><span class="line">A5RK</span><br><span class="line">S<span class="string">&#x27;$0</span></span><br><span class="line"><span class="string">&lt;4t&quot;,</span></span><br><span class="line"><span class="string">4cXO</span></span><br><span class="line"><span class="string">cj13c:?</span></span><br><span class="line"><span class="string">&amp;Yra</span></span><br><span class="line"><span class="string">zEwa</span></span><br><span class="line"><span class="string">b2+x</span></span><br><span class="line"><span class="string">z`tlR</span></span><br><span class="line"><span class="string">o|8M]</span></span><br><span class="line"><span class="string">.p4Hv</span></span><br><span class="line"><span class="string">)z&lt;p</span></span><br><span class="line"><span class="string">S=A.H&amp;^</span></span><br><span class="line"><span class="string">#hu#</span></span><br><span class="line"><span class="string">&quot;C&#125;Jy</span></span><br><span class="line"><span class="string">0R@R_</span></span><br><span class="line"><span class="string">~KW?</span></span><br><span class="line"><span class="string">b#Nzx$b</span></span><br><span class="line"><span class="string">RlG#t]Z&#125;</span></span><br><span class="line"><span class="string">e790</span></span><br><span class="line"><span class="string">JzV1O</span></span><br><span class="line"><span class="string">XEgp</span></span><br><span class="line"><span class="string">2Q d</span></span><br><span class="line"><span class="string">z#j\</span></span><br><span class="line"><span class="string">1Qit</span></span><br><span class="line"><span class="string">a&#x27;</span>b~</span><br><span class="line">bxBB\u$</span><br><span class="line">8Zpc    <span class="variable">$FOxF</span>[</span><br><span class="line">ANYwPCpk</span><br><span class="line">Xk]E</span><br><span class="line">bh&#125;s</span><br><span class="line">P<span class="string">&#x27;uP</span></span><br><span class="line"><span class="string">\-A:</span></span><br><span class="line"><span class="string">sCtY</span></span><br><span class="line"><span class="string">Z/1x+</span></span><br><span class="line"><span class="string">ej8z</span></span><br><span class="line"><span class="string">P&quot;`\XZ</span></span><br><span class="line"><span class="string">1KOA</span></span><br><span class="line"><span class="string">bandit9@bandit:~$ strings ./* | grep &quot;===&quot;</span></span><br><span class="line"><span class="string">========== the*2i&quot;4</span></span><br><span class="line"><span class="string">========== password</span></span><br><span class="line"><span class="string">Z)========== is</span></span><br><span class="line"><span class="string">&amp;========== truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk</span></span><br><span class="line"><span class="string">bandit9@bandit:~$ strings data.txt | grep -E &quot;^\\=&quot;</span></span><br><span class="line"><span class="string">=-VW+</span></span><br><span class="line"><span class="string">========== theP`</span></span><br><span class="line"><span class="string">========== password</span></span><br><span class="line"><span class="string">========== truKLdjsbJ5g7yyJ2X2R0o3a5HQJFuLk</span></span><br></pre></td></tr></table></figure></li>
+<li><p>Knowledge</p>
+</li>
+</ul>
+<h3 id="level-10"><a href="#level-10" class="headerlink" title="level 10"></a>level 10</h3><ul>
+<li><p>Level Goal</p>
+<p>  The password for the next level is stored in the file <strong>data.txt</strong>, which contains base64 encoded data</p>
+<h2 id="Commands-you-may-need-to-solve-this-level-10"><a href="#Commands-you-may-need-to-solve-this-level-10" class="headerlink" title="Commands you may need to solve this level"></a>Commands you may need to solve this level</h2><p>  grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd</p>
+<h2 id="Helpful-Reading-Material-3"><a href="#Helpful-Reading-Material-3" class="headerlink" title="Helpful Reading Material"></a>Helpful Reading Material</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Base64">Base64 on Wikipedia</a></li>
+</ul>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">bandit10@bandit:~$ ls</span><br><span class="line">data.txt</span><br><span class="line">bandit10@bandit:~$ cat data.txt</span><br><span class="line">VGhlIHBhc3N3b3JkIGlzIElGdWt3S0dzRlc4TU9xM0lSRnFyeEUxaHhUTkViVVBSCg==</span><br><span class="line">bandit10@bandit:~$ file ./*</span><br><span class="line">./data.txt: ASCII text</span><br><span class="line">bandit10@bandit:~$ base64 --decode data.txt</span><br><span class="line">The password is IFukwKGsFW8MOq3IRFqrxE1hxTNEbUPR</span><br></pre></td></tr></table></figure></li>
+<li><p>Knowledge</p>
+<p>  base64 —decode xxx      base64解密</p>
+</li>
+</ul>
+<h3 id="level-11"><a href="#level-11" class="headerlink" title="level 11"></a>level 11</h3><ul>
+<li><p>Level Goal</p>
+<p>  The password for the next level is stored in the file <strong>data.txt</strong>, where all lowercase (a-z) and uppercase (A-Z) letters have been rotated by 13 positions</p>
+<h2 id="Commands-you-may-need-to-solve-this-level-11"><a href="#Commands-you-may-need-to-solve-this-level-11" class="headerlink" title="Commands you may need to solve this level"></a>Commands you may need to solve this level</h2><p>  grep, sort, uniq, strings, base64, tr, tar, gzip, bzip2, xxd</p>
+<h2 id="Helpful-Reading-Material-4"><a href="#Helpful-Reading-Material-4" class="headerlink" title="Helpful Reading Material"></a>Helpful Reading Material</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Rot13">Rot13 on Wikipedia</a></li>
+</ul>
+</li>
+<li><p>Knowledge</p>
+</li>
+</ul>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>License</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>READ NEXT</span></section><section class="body fs14"><a id="next" href="/2021/08/04/hello-world/hello-world/">Hello World<span class="note">Older</span></a><div class="line"></div><div class="line"></div><a id="more" href="/archives">All Articles</a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</p>
+<p>This site was deployed by <a href="https://xiluowei0.github.io/">@WUJI</a> using <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.4.1" title="v1.4.1">Stellar</a>.</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.4.1';
+  stellar.config = {
+    date_suffix: {
+      just: 'Just',
+      min: 'minutes ago',
+      hour: 'hours ago',
+      day: 'days ago',
+      month: 'months ago',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper/swiper-bundle.min.css","js":"https://unpkg.com/swiper/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>
